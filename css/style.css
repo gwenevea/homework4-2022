@@ -1,0 +1,173 @@
+body {
+    font-family: 'Poppins', serif;
+    background-image:  '../images/concrete_seamless.png';
+    background-color: #f1f1f1;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav_links a:visited {
+    color: #0000EE;
+}
+
+/*not working*/
+.nav_links li {
+    text-align: left;
+}
+
+/*redo 10, also cards redo wide view*/
+#gallery {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-basis: 450px;
+    flex-direction: column;
+}
+
+/*redo 7*/
+.pricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+/*number 6 haven't done*/
+.card > header {
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0px;
+    border-radius: 50px 50px 0px 0px; 
+}
+
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px; 
+    width: 300px;
+}
+
+/*not sure this is animating right*/
+@keyframes logo {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo {
+    animation-name: logo;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+
+}
+
+@media screen and (min-width: 900px) {
+    header {
+        display: inline-flex;
+        justify-content: space-between;
+        /*align-items: center;*/
+        width: 100%;
+    }
+    /*links are displaying too low*/
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    /*am I supposed to edit pricing and not card + card displaying wrong size*/
+
+    .pricing {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 250px;
+    }
+
+    .card h3 {
+        text-align: left;
+    }
+
+    /*this is not working*/
+    header:first-of-type {
+        position: sticky;
+        z-index: 100;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+/*maybe can put animation after media query?*/
+    #logo {
+        /*unsure if works*/
+        animation: none;
+    }
+}
+
+@media print {
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: none;
+
+    }
+
+    nav {
+        /*need to do prob 17*/
+    }
+
+    .nav_links {
+        /*need to do prob 17*/
+    }
+
+    .pricing {
+        /*not working
+        align-content: flex-end;
+        */
+    }
+
+    .card {
+        flex-basis: 325px;
+        border: 2px solid #45ADDD
+        /*border wrapping around edge*/
+    }
+
+    #gallery {
+        /*not working*/
+        display: none;
+    }
+
+    .card ul:nth-child(2)::after {
+        content: "👍";
+        display: inline-block;
+        /*needs to go after first not second, not displaying inline, too small*/
+    }
+
+    /*details like wrap/no-wrap, card background, flex moving, margins, multiple browsers, axe/wave/validator
+
+    codepen and scrolled down links don't work
+
+    We use space-between for large screen view of the header and the nav_links.*/
+
+    }
