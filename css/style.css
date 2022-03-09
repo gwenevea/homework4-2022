@@ -8,26 +8,19 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-/*below not working*/
-body header:first-of-type {
-    position: sticky;
-    top: 0;
-    z-index: 9999999999999999;
+    align-items: center;
 }
 
 .nav_links {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
 }
 
 .nav_links a:visited {
     color: #0000EE;
 }
 
-/*not working*/
 .nav_links li {
     text-align: left;
 }
@@ -46,20 +39,17 @@ body header:first-of-type {
 }
 
 .card {
-    display: flex;
     flex-basis: 450px;
-    flex-direction: column;
     border-radius: 50px 50px 0px 0px; 
-    justify-content: flex-end;
     /*ensure flex end works on other screens, background showing through, not on left side*/
 }
 
 /*redo 7*/
 .pricing {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 /*number 6 haven't done*/
@@ -102,7 +92,12 @@ body header:first-of-type {
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+
+    }
+
+    body > header {
         position: sticky;
+        top: 0;
     }
 
     nav {
@@ -132,12 +127,6 @@ body header:first-of-type {
     .card h3 {
         text-align: left;
     }
-
-    /*this is not working*/
-    header:first-of-type {
-        position: sticky;
-        z-index: 100;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -149,6 +138,7 @@ body header:first-of-type {
 }
 
 @media print {
+    /*not centered*/
     body {
         font-family: Arial, Helvetica, sans-serif;
         background-image: none;
@@ -157,9 +147,13 @@ body header:first-of-type {
     nav {
         display: flex;
         align-content: center;
+        justify-content: center;
+        width: 100%;
+        /*nav not spacing in center*/
     }
 
     .nav_links {
+        width: 75%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -192,16 +186,12 @@ body header:first-of-type {
         display: none;
     }
 
-    .card ul:nth-child(2)::after {
+    .card li:nth-child(2)::after {
         content: "👍";
-        /*display: inline-block;*/
-        /*needs to go after first not second, not displaying inline, too small*/
     }
 
     /*details like wrap/no-wrap, card background, flex moving, margins, multiple browsers, axe/wave/validator
 
-    codepen and scrolled down links don't work
-
-    We use space-between for large screen view of the header and the nav_links.*/
+    codepen and scrolled down links don't work*/
 
     }
