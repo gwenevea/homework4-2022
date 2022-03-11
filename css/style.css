@@ -173,6 +173,8 @@ header {
         display: flex;
         flex-direction: row;
         padding-bottom: 50px;
+        align-items: flex-end;
+        flex-wrap: nowrap;
     }
 
     .card {
